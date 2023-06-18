@@ -1,0 +1,195 @@
+<style>
+
+    :root {
+        --a: rgb(255, 255, 255);
+        --b: rgb(56, 60, 148);
+        --d: rgb(100, 106, 226);
+        --e:   0px;
+        
+        --f:   rgb(207, 221, 250);
+        --g:   rgb(255, 255, 255);
+        --i:  blue  
+
+    }
+    
+    body{
+        font-family: monospace;
+        overflow: hidden; 
+        background-color: var(--b); color: var(--b);
+        background-size: cover;
+        
+    }
+
+    a{ display: block; background-color:  var(--d); cursor: pointer;
+         padding: 1%; color: var(--g); text-decoration: none;
+    }
+    article{
+        position: relative; padding:2%; left: 3%;
+        background: var(--d); display: flex; height: 90%; width: 90%;
+        background-size:auto; justify-content:center; border-radius: var(--e);
+    }
+    section{
+         padding: 2%; position:relative;border-radius: var(--e);border: 2px solid var(--d);
+         
+        
+    }
+    .left{
+        position: relative; left:0%; width: 10%;background-color: var(--g);
+        font-size: small; overflow: hidden;
+        object-position: 10%; background-image: var(--h);
+
+    }
+    img{
+        padding: 2%; width: 100%;
+    }
+    .mid{
+        position: relative; width: 70%; background-color: var(--f); justify-content:center; display: inline;
+        overflow: scroll; background-image: var(--i);
+    }
+    .right{
+        position: relative; width: 40%; background-color: var(--g);justify-content:center; display: inline;
+        background-image: var(--h);font-size: small;
+    }
+
+    div{
+        justify-content:center; display: flex; text-align: center;
+    }
+    footer{
+        color: rgb(255, 255, 255); justify-content:left; display: flex;
+        margin-top: 1%; 
+    }
+
+    .mid div{
+        background-color: var(--a); min-height: 20%; width: 100%;
+        position: relative; text-align: center; padding-block: 25px;
+        margin-block: 3%; display:block; 
+    }
+    .mid div img{
+        width: 90%;
+    }
+    embed,blockquote {
+    margin: 2%; width: 90%; 
+    }
+    section.content {
+    display: none; border: none;
+    }
+</style>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    </head>
+    <title>
+        play blog 🧊
+    </title>
+    <body>
+
+        <article>
+            <section class="left" >
+                <img src="https://www.pngmart.com/files/22/Aesthetic-Theme-Tumblr-PNG-Pic.png" alt="">
+                <div> <h2>about:</h2></div>
+                <p>This page functions as a custom blog where one can post any number of text posts with
+                    a custom title. </p>
+                    <h1> custom links</h1>
+                        <a  class="foo"data-rel="newPost">articles</a>
+                        <p>create text posts</p>
+                        
+                        <a  class="foo"data-rel="newMusic">music</a>
+                        <p>post videos and music</p>
+
+                        <a  class="foo"data-rel="newImage">artwork</a>
+                        <p> collect your favourite images</p>
+
+
+            </section>
+            
+            <section class="mid">
+                <div style="position: relative; min-height: 5%;"> custom blog landing page + header post <br>make sure your links are valid!</div>
+                <section class="content" id="newPost"></section>
+
+                <section  class="content" id="newMusic"></section>
+
+                <section class="content" id="newImage"></section>
+                
+                
+
+                
+            </section>
+            
+
+            <section class="right">
+
+                <section >
+                <h1>article title:</h1>
+                <input id="title"
+                style="max-width: 100%; width: 90%"> <br><br>
+                <h1>entry:</h1>
+                <textarea id="comment"
+                style="max-width: 100%; width: 90%; max-height: 60%;"></textarea>
+                <br><br><button id="submit" >post article !</button></section>
+                <br>
+                <section >
+                    <h1>music title:</h1>
+                    <input id="title2"
+                    style="max-width: 100%; width: 90%"> <br><br>
+                    <h1>music link:</h1>
+                    <p style="max-width: 100%; width: 90%">use embed link!! (eg. website.com/<b>embed</b>/abc)</p>
+                    <input id="link" style="max-width: 100%; width: 90%"> </input>
+                    <br><br><button id="submitM" >post music !</button></section>
+                <br>
+                <section >
+                    <h1>image title:</h1>
+                    <input id="title3"
+                    style="max-width: 100%; width: 90%"> <br><br>
+                    <h1>image link:</h1>
+                    <input id="link2" > </input>
+                    <br><br><button id="submitI" >post image !</button></section>
+            
+                
+            
+                </section>
+                
+
+        </article>
+        <footer>&copy; maita kambarami 2023 </footer>
+
+    </body>
+</html>
+
+<img src="" alt="">
+<script>
+
+$('#submit').click(function() {
+    var title = $('#title').val();
+    var comment = $('#comment').val();
+    $('#newPost').append('<div>' + '<h1>' + title + '</h1> ' + comment + '</div>');
+});
+
+$('#submitM').click(function() {
+    var title2 = $('#title2').val();
+    var link = $('#link').val();
+    $('#newMusic').append('<div>' + '<h1>' + title2 + '</h1> ' + 
+        '<iframe  width="420" height="315" '+ 'src="'+
+            link + '"></iframe>'
+         +'</div>');
+});
+
+
+$('#submitI').click(function() {
+    var title3 = $('#title3').val();
+    var link2 = $('#link2').val();
+    $('#newImage').append('<div>' + '<h1>' + title3 + '</h1> ' + 
+        '<img '+ 'src="'+
+            link2 + '">'
+         +'</div>');
+});
+
+
+    
+$('.foo').click(function() {
+	$('#' + $(this).data('rel')).show().siblings('section').hide();
+})
+
+ </script>
